@@ -152,16 +152,16 @@ const verbs = [
   ];
 
 const tenses = [
-    { tense: "Present Simple", template: "${Subject} ${Verb}s ${Object}.", form: "base" },
-    { tense: "Present Continuous", template: "${Subject} <is/are> ${Verb} ${Object}.", form: "continuous" },
-    { tense: "Present Perfect", template: "${Subject} <has/have> ${Verb} ${Object}.", form: "pastParticiple" },
-    { tense: "Present Perfect Continuous", template: "${Subject} <has/have> been ${Verb} ${Object}.", form: "continuous" },
-    { tense: "Past Simple", template: "${Subject} ${Verb} ${Object}.", form: "past" },
-    { tense: "Past Continuous", template: "${Subject} <was/were> ${Verb} ${Object}.", form: "continuous" },
-    { tense: "Past Perfect", template: "${Subject} had ${Verb} ${Object}.", form: "pastParticiple" },
-    { tense: "Past Perfect Continuous", template: "${Subject} had been ${Verb} ${Object}.", form: "continuous" },
-    { tense: "Future Simple", template: "${Subject} will ${Verb} ${Object}.", form: "base" },
-    { tense: "Future Continuous", template: "${Subject} will be ${Verb} ${Object}.", form: "continuous" },
-    { tense: "Future Perfect", template: "${Subject} will have ${Verb} ${Object}.", form: "pastParticiple" },
-    { tense: "Future Perfect Continuous", template: "${Subject} will have been ${Verb} ${Object}.", form: "continuous" },
+    { tense: "Present Simple", template: "{Subject} {Verb}s {Object}.", form: "base" },
+    { tense: "Present Continuous", template: "{Subject} <is/are> {Verb} {Object}.", form: "continuous" },
+    { tense: "Present Perfect", template: "{Subject} <has/have> {Verb} {Object}.", form: "pastParticiple" },
+    { tense: "Present Perfect Continuous", template: "{Subject} <has/have> been {Verb} {Object}.", form: "continuous" },
+    { tense: "Past Simple", template: "{Subject} {Verb} {Object}.", form: "past" },
+    { tense: "Past Continuous", template: "{Subject} <was/were> {Verb} {Object}.", form: "continuous" },
+    { tense: "Past Perfect", template: "{Subject} had {Verb} {Object}.", form: "pastParticiple" },
+    { tense: "Past Perfect Continuous", template: "{Subject} had been {Verb} {Object}.", form: "continuous" },
+    { tense: "Future Simple", template: "{Subject} will {Verb} {Object}.", form: "base" },
+    { tense: "Future Continuous", template: "{Subject} will be {Verb} {Object}.", form: "continuous" },
+    { tense: "Future Perfect", template: "{Subject} will have {Verb} {Object}.", form: "pastParticiple" },
+    { tense: "Future Perfect Continuous", template: "{Subject} will have been {Verb} {Object}.", form: "continuous" },
 ];

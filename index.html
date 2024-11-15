@@ -29,7 +29,7 @@
         <select id="verb-select">
             <option value="">Select a verb</option>
         </select>
-        <select id="tense" onchange="test()">
+        <select id="tense">
             <option value="">Select a tense</option>
         </select>
     </div>
@@ -48,7 +48,7 @@
         <input type="checkbox" id="object-plural" name="object-plural">
         <label for="object-plural">Plural</label>
     </div>
-    <button id="generate">Generate</button>
+    <button id="generate" onclick="generateSentence()">Generate</button>
     <h1 id="sentence"></h1>
 </body>
 </html>
