@@ -15,3 +15,19 @@ adjectives.forEach((adjective) => {
         selectElement.appendChild(option);
     }
 });
+
+verbs.forEach((verb, index) => {
+    let selectElement = document.getElementById("verb-select");
+    let option = document.createElement("option");
+    option.value = index;
+    option.textContent = verb.base;
+    selectElement.appendChild(option);
+});
+
+tenses.forEach((tense, index) => {
+    let selectElement = document.getElementById("tense");
+    let option = document.createElement("option");
+    option.value = index;
+    option.textContent = tense.tense;
+    selectElement.appendChild(option);
+});

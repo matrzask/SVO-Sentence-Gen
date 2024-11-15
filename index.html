@@ -26,10 +26,10 @@
     </div>
     <div id="verb">
         <h2>Verb</h2>
-        <select id="verb">
+        <select id="verb-select">
             <option value="">Select a verb</option>
         </select>
-        <select id="tense">
+        <select id="tense" onchange="test()">
             <option value="">Select a tense</option>
         </select>
     </div>
@@ -37,6 +37,7 @@
         <h2>Object</h2>
         <select id="object-article" class="article">
             <option value="">A/An</option>
+            <option value="the">The</option>
         </select>
         <select id="object-adjective" class="adjective">
             <option value="">--</option>
