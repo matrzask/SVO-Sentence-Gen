@@ -12,7 +12,7 @@
     <div id="subject">
         <h2>Subject</h2>
         <select id="subject-article" class="article">
-            <option value="">A/An</option>
+            <option value="" id="subject-a">A/An</option>
             <option value="the">The</option>
         </select>
         <select id="subject-adjective" class="adjective">
@@ -21,7 +21,7 @@
         <select id="subject-noun" class="noun">
             <option value="">Select a noun</option>
         </select>
-        <input type="checkbox" id="subject-plural" name="subject-plural">
+        <input type="checkbox" id="subject-plural" name="subject-plural" onchange="updateArticles('subject')">
         <label for="subject-plural">Plural</label>
     </div>
     <div id="verb">
@@ -36,7 +36,7 @@
     <div id="object">
         <h2>Object</h2>
         <select id="object-article" class="article">
-            <option value="">A/An</option>
+            <option value="" id="object-a">A/An</option>
             <option value="the">The</option>
         </select>
         <select id="object-adjective" class="adjective">
@@ -45,7 +45,7 @@
         <select id="object-noun" class="noun">
             <option value="">Select a noun</option>
         </select>
-        <input type="checkbox" id="object-plural" name="object-plural">
+        <input type="checkbox" id="object-plural" name="object-plural" onchange="updateArticles('object')">
         <label for="object-plural">Plural</label>
     </div>
     <button id="generate" onclick="generateSentence()">Generate</button>

@@ -7,11 +7,11 @@ nouns.forEach((noun, index) => {
     }
 });
 
-adjectives.forEach((adjective) => {
+adjectives.forEach((adjective, index) => {
     for(selectElement of document.getElementsByClassName("adjective")) {
         let option = document.createElement("option");
-        option.value = adjective;
-        option.textContent = adjective;
+        option.value = index;
+        option.textContent = adjective.word;
         selectElement.appendChild(option);
     }
 });
@@ -32,8 +32,52 @@ tenses.forEach((tense, index) => {
     selectElement.appendChild(option);
 });
 
+function updateArticles(target) {
+    let article = document.getElementById(target+"-a");
+    let plural = document.getElementById(target+"-plural");
+    if(plural.checked) {
+        article.textContent = "--";
+    }
+    else {
+        article.textContent = "A/An";
+    }
+}
+
 function generateNounPhrase(noun, adjective, article, plural) {
-    return noun.word;
+    let phrase = "";
+
+    if(adjective && !plural) {
+        phrase += adjective.article + " ";
+    }
+    else if(article) {
+        phrase += article + " ";
+    }
+    else if(!plural) {
+        if(noun.article) {
+            phrase += noun.article + " ";
+        }
+        else {
+            if(noun.word.charAt(0).match(/[aeiou]/i)) {
+                phrase += "an ";
+            }
+            else {
+                phrase += "a ";
+            }
+        }
+    }
+
+    if(adjective) {
+        phrase += adjective.word + " ";
+    }
+
+    if(plural) {
+        phrase += noun.plural ?? noun.word + "s";
+    }
+    else {
+        phrase += noun.word
+    }
+
+    return phrase;
 }
 
 function generateSentence() {
@@ -49,7 +93,7 @@ function generateSentence() {
         alert("Please select a subject noun.");
         return;
     }
-    let subjectAdjective = document.getElementById("subject-adjective").value;
+    let subjectAdjective = adjectives[document.getElementById("subject-adjective").value];
     let subjectArticle = document.getElementById("subject-article").value;
     let isSubjectPlural = document.getElementById("subject-plural").checked;
     let subject = generateNounPhrase(subjectNoun, subjectAdjective, subjectArticle, isSubjectPlural);
@@ -61,7 +105,7 @@ function generateSentence() {
         alert("Please select a object noun.");
         return;
     }
-    let objectAdjective = document.getElementById("object-adjective").value;
+    let objectAdjective = adjectives[document.getElementById("object-adjective").value];
     let objectArticle = document.getElementById("object-article").value;
     let isObjectPlural = document.getElementById("object-plural").checked;
     let object = generateNounPhrase(objectNoun, objectAdjective, objectArticle, isObjectPlural);
@@ -73,6 +117,20 @@ function generateSentence() {
         return;
     }
     sentence = sentence.replace("{Verb}", verb[tense.form]);
+
+    let start = sentence.search("<");
+    if(start >= 0) {
+        let end = sentence.search(">");
+        let divider = sentence.search("/");
+        let word = "";
+        if (isSubjectPlural) {
+            word = sentence.slice(divider + 1, end);
+        }
+        else {
+            word = sentence.slice(start + 1, divider);
+        }
+        sentence = sentence.replace(/<.*>/, word);
+    }
 
     sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
     document.getElementById("sentence").textContent = sentence;
