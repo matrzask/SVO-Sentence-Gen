@@ -12,7 +12,7 @@
     <div id="subject">
         <h2>Subject</h2>
         <select id="subject-article" class="article">
-            <option value="" id="subject-a">A/An</option>
+            <option value="a" id="subject-a">A/An</option>
             <option value="the">The</option>
         </select>
         <select id="subject-adjective" class="adjective">
@@ -36,7 +36,7 @@
     <div id="object">
         <h2>Object</h2>
         <select id="object-article" class="article">
-            <option value="" id="object-a">A/An</option>
+            <option value="a" id="object-a">A/An</option>
             <option value="the">The</option>
         </select>
         <select id="object-adjective" class="adjective">
@@ -49,6 +49,7 @@
         <label for="object-plural">Plural</label>
     </div>
     <button id="generate" onclick="generateSentence()">Generate</button>
+    <button id="randomize" onclick="randomizeSelections()">Randomize</button>
     <h1 id="sentence"></h1>
 </body>
 </html>

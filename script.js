@@ -46,11 +46,11 @@ function updateArticles(target) {
 function generateNounPhrase(noun, adjective, article, plural) {
     let phrase = "";
 
-    if(adjective && !plural) {
-        phrase += adjective.article + " ";
-    }
-    else if(article) {
+    if(article !== "a") {
         phrase += article + " ";
+    }
+    else if(adjective && !plural) {
+        phrase += adjective.article + " ";
     }
     else if(!plural) {
         if(noun.article) {
@@ -134,4 +134,41 @@ function generateSentence() {
 
     sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
     document.getElementById("sentence").textContent = sentence;
+}
+
+function getRandomOption(selectElement) {
+    const options = selectElement.options;
+    let randomIndex = "";
+    do {
+        randomIndex = Math.floor(Math.random() * options.length);
+    } while (options[randomIndex].value === "");
+    return options[randomIndex].value;
+}
+
+function randomizeSelections() {
+    const subjectArticle = document.getElementById('subject-article');
+    const subjectAdjective = document.getElementById('subject-adjective');
+    const subjectNoun = document.getElementById('subject-noun');
+    const subjectPlural = document.getElementById('subject-plural');
+    const verbSelect = document.getElementById('verb-select');
+    const tense = document.getElementById('tense');
+    const objectArticle = document.getElementById('object-article');
+    const objectAdjective = document.getElementById('object-adjective');
+    const objectNoun = document.getElementById('object-noun');
+    const objectPlural = document.getElementById('object-plural');
+
+    subjectArticle.value = getRandomOption(subjectArticle);
+    subjectAdjective.value = getRandomOption(subjectAdjective);
+    subjectNoun.value = getRandomOption(subjectNoun);
+    subjectPlural.checked = Math.random() < 0.5;
+    verbSelect.value = getRandomOption(verbSelect);
+    tense.value = getRandomOption(tense);
+    objectArticle.value = getRandomOption(objectArticle);
+    objectAdjective.value = getRandomOption(objectAdjective);
+    objectNoun.value = getRandomOption(objectNoun);
+    objectPlural.checked = Math.random() < 0.5;
+
+    generateSentence();
+    updateArticles("subject");
+    updateArticles("object");
 }
